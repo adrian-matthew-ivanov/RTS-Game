@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dvivrlbfj5svg"]
+
+[ext_resource type="Script" uid="uid://bgovy0h4eomip" path="res://scenes/main.gd" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://d0cdrnsocr3u7" path="res://screens/UIRoot.tscn" id="2_0wfyh"]
+
+[node name="Root" type="Node2D" unique_id=61242777]
+script = ExtResource("1_o5qli")
+
+[node name="LevelSpawner" type="MultiplayerSpawner" parent="." unique_id=2110693968]
+_spawnable_scenes = PackedStringArray("uid://cw8jrhnx121t1")
+spawn_path = NodePath("../Level")
+
+[node name="Level" type="Node2D" parent="." unique_id=2047833714]
+
+[node name="PlayerSpawner" type="MultiplayerSpawner" parent="." unique_id=532632472]
+_spawnable_scenes = PackedStringArray("uid://dvbp3gkohth4")
+spawn_path = NodePath("../Players")
+
+[node name="Players" type="Node2D" parent="." unique_id=1405748627]
+
+[node name="UiRoot" parent="." unique_id=1925889954 instance=ExtResource("2_0wfyh")]

@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://dkpvrydxpmwq1"]
+
+[ext_resource type="Script" uid="uid://do04ftu8atbaj" path="res://screens/home_screen.gd" id="1_lapbl"]
+
+[node name="HomeScreen" type="Control" unique_id=2094069186]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lapbl")
+
+[node name="HostPort" type="TextEdit" parent="." unique_id=51168569]
+layout_mode = 0
+offset_left = 698.0
+offset_top = 285.0
+offset_right = 1061.0
+offset_bottom = 322.0
+placeholder_text = "Port"
+
+[node name="JoinPort" type="TextEdit" parent="." unique_id=614499953]
+layout_mode = 0
+offset_left = 113.0
+offset_top = 317.0
+offset_right = 476.0
+offset_bottom = 354.0
+placeholder_text = "Port"
+
+[node name="JoinIP" type="TextEdit" parent="." unique_id=2026622714]
+layout_mode = 0
+offset_left = 114.0
+offset_top = 261.0
+offset_right = 477.0
+offset_bottom = 298.0
+placeholder_text = "IP"
+
+[node name="JoinButton" type="Button" parent="." unique_id=82261260]
+layout_mode = 0
+offset_left = 153.0
+offset_top = 405.0
+offset_right = 427.0
+offset_bottom = 473.0
+text = "Join"
+
+[node name="HostButton" type="Button" parent="." unique_id=484642298]
+layout_mode = 0
+offset_left = 742.0
+offset_top = 405.0
+offset_right = 1016.0
+offset_bottom = 473.0
+text = "Host"
+
+[connection signal="pressed" from="JoinButton" to="." method="_on_join_pressed"]
+[connection signal="pressed" from="HostButton" to="." method="_on_host_pressed"]
