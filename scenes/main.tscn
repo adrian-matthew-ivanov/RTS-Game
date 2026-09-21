@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dvivrlbfj5svg"]
 
-[ext_resource type="Script" uid="uid://bgovy0h4eomip" path="res://scenes/main.gd" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://bgovy0h4eomip" path="res://scripts/main.gd" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://d0cdrnsocr3u7" path="res://screens/UIRoot.tscn" id="2_0wfyh"]
 
 [node name="Root" type="Node2D" unique_id=61242777]
