@@ -1,15 +1,15 @@
 [gd_scene format=3 uid="uid://dkpvrydxpmwq1"]
 
-[ext_resource type="Script" uid="uid://do04ftu8atbaj" path="res://scripts/home_screen.gd" id="1_lapbl"]
+[ext_resource type="Script" uid="uid://do04ftu8atbaj" path="res://scripts/home_screen.gd" id="1_lwtrs"]
 
-[node name="HomeScreen" type="Control" unique_id=2094069186]
+[node name="ConnectScreen" type="Control" unique_id=2094069186]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_lapbl")
+script = ExtResource("1_lwtrs")
 
 [node name="HostPort" type="TextEdit" parent="." unique_id=51168569]
 layout_mode = 0

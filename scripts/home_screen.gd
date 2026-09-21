@@ -1,4 +1,4 @@
-extends Control
+extends RTSScreen
 
 @onready var host_port_text: TextEdit = $HostPort
 
@@ -9,10 +9,6 @@ func _ready() -> void:
 	join_ip_text.text = Configloader.get_ip()
 	join_port_text.text = Configloader.get_port()
 	host_port_text.text = Configloader.get_port()
-	
-
-func _process(delta: float) -> void:
-	pass
 
 func _on_host_pressed() -> void:
 	Lobby.start_enet_server(host_port_text.text.to_int())

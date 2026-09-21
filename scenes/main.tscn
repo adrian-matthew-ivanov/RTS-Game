@@ -6,6 +6,8 @@
 [node name="Root" type="Node2D" unique_id=61242777]
 script = ExtResource("1_o5qli")
 
+[node name="UiRoot" parent="." unique_id=1925889954 instance=ExtResource("2_0wfyh")]
+
 [node name="LevelSpawner" type="MultiplayerSpawner" parent="." unique_id=2110693968]
 _spawnable_scenes = PackedStringArray("uid://cw8jrhnx121t1")
 spawn_path = NodePath("../Level")
@@ -17,5 +19,3 @@ _spawnable_scenes = PackedStringArray("uid://dvbp3gkohth4")
 spawn_path = NodePath("../Players")
 
 [node name="Players" type="Node2D" parent="." unique_id=1405748627]
-
-[node name="UiRoot" parent="." unique_id=1925889954 instance=ExtResource("2_0wfyh")]

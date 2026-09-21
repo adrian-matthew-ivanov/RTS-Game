@@ -1,9 +1,21 @@
 [gd_scene format=3 uid="uid://bex6xhk7rkodk"]
 
-[node name="StartMatchScreen" type="Control" unique_id=1936329509]
+[ext_resource type="Script" uid="uid://dw8fev0x351lk" path="res://screens/screen.gd" id="1_6e8n4"]
+
+[node name="StartMatchScreen" type="Control" unique_id=1709839165]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_6e8n4")
+metadata/_custom_type_script = "uid://dw8fev0x351lk"
+
+[node name="Ready" type="Button" parent="." unique_id=615880858]
+layout_mode = 0
+offset_left = 958.0
+offset_top = 547.0
+offset_right = 1101.0
+offset_bottom = 594.0
+text = "Ready"

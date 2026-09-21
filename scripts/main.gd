@@ -13,6 +13,10 @@ func _ready() -> void:
 	Lobby.server_started.connect(server_start)
 	Lobby.peer_connected.connect(peer_connected)
 	Lobby.peer_disconnected.connect(peer_disconnected)
+	
+	Lobby.connected_to_server.connect(connected_to_server)
+	
+	ScreenManager.Open(ScreenManager.ScreenName.CONNECT)
 
 func _process(delta: float) -> void:
 	pass
@@ -23,6 +27,9 @@ func server_start() -> void:
 	
 	_switch_level(LEVEL_1)
 	_spawn_player(multiplayer.get_unique_id())
+	
+	# server has no UI
+	ScreenManager._hide_all_screens()
 
 func peer_connected(peer_id : int) -> void:
 	_spawn_player(peer_id)
@@ -55,3 +62,10 @@ func _clear_level() -> void:
 	for c in level.get_children():
 		level.remove_child(c)
 		c.queue_free()
+
+
+func connected_to_server() -> void:
+	ScreenManager.Open(ScreenManager.ScreenName.START_MATCH)
+
+func _player_clicked_ready() -> void:
+	pass

@@ -1,13 +1,18 @@
+class_name ScreenManager
 extends Node
+ 
 
-enum ScreenName { CONNECT, }
+enum ScreenName { NONE, CONNECT, START_MATCH}
 
-func Open(screen_name : ScreenName) -> void:
+var screens = {};
+
+func register_screen(screen : RTSScreen, screen_name : ScreenName) -> void:
+	screens[screen_name] = screen
+
+func open(screen_name : ScreenName) -> void:
 	_hide_all_screens()
-	$HomeScreen.show()
+	screens[screen_name].show()
 	
 func _hide_all_screens() -> void:
-	for child in $UIRoot.get_children():
-		var control = child as Control
-		if (control):
-			control.hide()
+	for screen in screens.values():
+		screen.hide()
