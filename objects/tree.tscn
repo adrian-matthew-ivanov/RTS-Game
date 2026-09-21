@@ -1,3 +1,26 @@
 [gd_scene format=3 uid="uid://dfqh7axvx0d7p"]
 
+[ext_resource type="Script" uid="uid://55iyugjhs7as" path="res://objects/scripts/tree.gd" id="1_d8ko4"]
+[ext_resource type="Texture2D" uid="uid://cy0l7l2cegac2" path="res://assets/tree.png" id="1_j00qk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_abukt"]
+radius = 15.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kgtat"]
+size = Vector2(9, 11)
+
 [node name="Tree" type="Node2D" unique_id=776282896]
+script = ExtResource("1_d8ko4")
+
+[node name="Tree" type="Sprite2D" parent="." unique_id=1664203496]
+texture = ExtResource("1_j00qk")
+
+[node name="SelectArea" type="Area2D" parent="." unique_id=1293877917]
+
+[node name="Leaves" type="CollisionShape2D" parent="SelectArea" unique_id=1307873899]
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_abukt")
+
+[node name="Trunk" type="CollisionShape2D" parent="SelectArea" unique_id=350704675]
+position = Vector2(0.5, 12.5)
+shape = SubResource("RectangleShape2D_kgtat")
