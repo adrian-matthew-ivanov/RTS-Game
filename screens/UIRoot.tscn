@@ -11,7 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HomeScreen" parent="." unique_id=2094069186 instance=ExtResource("1_1hj83")]
+[node name="ConnectScreen" parent="." unique_id=2094069186 instance=ExtResource("1_1hj83")]
 visible = false
 layout_mode = 1
 

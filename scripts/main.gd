@@ -18,9 +18,6 @@ func _ready() -> void:
 	
 	ScreenManager.open(ScreenManager.ScreenName.CONNECT)
 
-func _process(delta: float) -> void:
-	pass
-
 func server_start() -> void:
 	_clear_players()
 	_clear_level()

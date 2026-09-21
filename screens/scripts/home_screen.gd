@@ -6,6 +6,8 @@ extends RTSScreen
 @onready var join_port_text: TextEdit = $JoinPort
 
 func _ready() -> void:
+	super()
+	
 	join_ip_text.text = Configloader.get_ip()
 	join_port_text.text = Configloader.get_port()
 	host_port_text.text = Configloader.get_port()
