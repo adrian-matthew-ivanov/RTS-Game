@@ -4,8 +4,8 @@ extends Control
 @export var ScreenName : ScreenManager.ScreenName = ScreenManager.ScreenName.NONE
 
 func _ready() -> void:
-	register()
+	register_screen()
 
 # Your custom function to call on ready
-func register() -> void:
-	ScreenManager.register(self, ScreenName)
+func register_screen() -> void:
+	ScreenManager.register_screen(self, ScreenName)

@@ -1,6 +1,4 @@
-class_name ScreenManager
 extends Node
- 
 
 enum ScreenName { NONE, CONNECT, START_MATCH}
 
@@ -11,7 +9,8 @@ func register_screen(screen : RTSScreen, screen_name : ScreenName) -> void:
 
 func open(screen_name : ScreenName) -> void:
 	_hide_all_screens()
-	screens[screen_name].show()
+	if screens.has(screen_name):
+		screens[screen_name].show()
 	
 func _hide_all_screens() -> void:
 	for screen in screens.values():

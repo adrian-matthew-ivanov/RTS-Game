@@ -16,7 +16,7 @@ func _ready() -> void:
 	
 	Lobby.connected_to_server.connect(connected_to_server)
 	
-	ScreenManager.Open(ScreenManager.ScreenName.CONNECT)
+	ScreenManager.open(ScreenManager.ScreenName.CONNECT)
 
 func _process(delta: float) -> void:
 	pass
@@ -65,7 +65,7 @@ func _clear_level() -> void:
 
 
 func connected_to_server() -> void:
-	ScreenManager.Open(ScreenManager.ScreenName.START_MATCH)
+	ScreenManager.open(ScreenManager.ScreenName.START_MATCH)
 
 func _player_clicked_ready() -> void:
 	pass
