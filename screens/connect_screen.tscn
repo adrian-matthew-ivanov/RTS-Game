@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dkpvrydxpmwq1"]
 
-[ext_resource type="Script" uid="uid://do04ftu8atbaj" path="res://scripts/home_screen.gd" id="1_lwtrs"]
+[ext_resource type="Script" uid="uid://do04ftu8atbaj" path="res://screens/scripts/home_screen.gd" id="1_lwtrs"]
 
 [node name="ConnectScreen" type="Control" unique_id=2094069186]
 layout_mode = 3
@@ -10,6 +10,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lwtrs")
+ScreenName = 1
 
 [node name="HostPort" type="TextEdit" parent="." unique_id=51168569]
 layout_mode = 0

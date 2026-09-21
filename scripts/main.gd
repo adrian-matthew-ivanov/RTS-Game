@@ -65,7 +65,9 @@ func _clear_level() -> void:
 
 
 func connected_to_server() -> void:
-	ScreenManager.open(ScreenManager.ScreenName.START_MATCH)
+	# TODO implement match start sync
+	# ScreenManager.open(ScreenManager.ScreenName.START_MATCH)
+	pass
 
 func _player_clicked_ready() -> void:
 	pass
