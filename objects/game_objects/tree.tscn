@@ -9,6 +9,13 @@ radius = 15.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kgtat"]
 size = Vector2(9, 11)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_j4ohn"]
+radius = 13.152946
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kgtat"]
+radius = 5.0
+height = 18.0
+
 [node name="Tree" type="Node2D" unique_id=776282896]
 script = ExtResource("1_d8ko4")
 
@@ -20,7 +27,23 @@ texture = ExtResource("1_j00qk")
 [node name="Leaves" type="CollisionShape2D" parent="SelectArea" unique_id=1307873899]
 position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_abukt")
+debug_color = Color(0, 0.54877096, 0.92977834, 0.41960785)
 
 [node name="Trunk" type="CollisionShape2D" parent="SelectArea" unique_id=350704675]
 position = Vector2(0.5, 12.5)
 shape = SubResource("RectangleShape2D_kgtat")
+debug_color = Color(0, 0.54877096, 0.92977834, 0.41960785)
+
+[node name="CollectWoodArea" type="Area2D" parent="." unique_id=1662988515]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectWoodArea" unique_id=332051123]
+position = Vector2(0, 16)
+shape = SubResource("CircleShape2D_j4ohn")
+debug_color = Color(2.3102762e-06, 0.63588, 0.41566655, 0.41960785)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=553643834]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=718634583]
+position = Vector2(0, 9)
+shape = SubResource("CapsuleShape2D_kgtat")
+debug_color = Color(0.9643664, 0.19151148, 0, 0.41960785)
