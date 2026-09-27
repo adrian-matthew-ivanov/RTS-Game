@@ -12,6 +12,10 @@ script = ExtResource("1_eqqp1")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1307985086]
 zoom = Vector2(5, 5)
+limit_left = -1215752192
+limit_top = -1215752192
+limit_right = 1215752192
+limit_bottom = 1215752192
 position_smoothing_enabled = true
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=2054074342]
