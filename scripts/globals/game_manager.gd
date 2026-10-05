@@ -66,11 +66,12 @@ func enter_game() -> void:
 	else:
 		ScreenManager.open(ScreenManager.ScreenName.HUD)
 
-func build_action(structure_data: StructureData) -> void:
-	build_action.rpc(1, structure_data.resource_path)
+func build_action(structure: StructureData, position: Vector2) -> void:
+	on_build_action.rpc(1, Globals.get_structure_id(structure), position)
 
 @rpc("any_peer", "reliable")
-func on_build_action(structure_uid: String):
+func on_build_action(peer_id:int, structure_id: int, position: Vector2):
 	if multiplayer.is_server():
-		# get resource from globals, spawn
-		pass
+		var child: Node2D = Globals.id_to_structure[structure_id].structure.instantiate()
+		child.global_position = position
+		level_root.add_child(child)

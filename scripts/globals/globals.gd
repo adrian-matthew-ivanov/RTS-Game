@@ -28,5 +28,5 @@ func _ready() -> void:
 		var id = ResourceLoader.get_resource_uid(full_path)
 		id_to_structure[id] = res
 				
-func get_structure_id(struct_data: StructureData) -> int:
-	return ResourceLoader.get_resource_uid(struct_data.resource_path)
+func get_structure_id(structure: StructureData) -> int:
+	return ResourceLoader.get_resource_uid(structure.resource_path)
