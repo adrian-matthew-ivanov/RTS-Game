@@ -22,7 +22,7 @@ func sync_action(action: int):
 	var current_action: Enums.Action = action as Enums.Action
 	if multiplayer.is_server():
 		print("Server received action: ", current_action)
-
+		
 func enter_game() -> void:
 	# TODO implement match start sync
 	# ScreenManager.open(ScreenManager.ScreenName.START_MATCH)
