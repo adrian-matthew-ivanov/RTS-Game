@@ -14,21 +14,13 @@ script = ExtResource("1_juk4q")
 ScreenName = 3
 metadata/_custom_type_script = "uid://dw8fev0x351lk"
 
-[node name="BuildHouse" type="Button" parent="." unique_id=1297080598]
+[node name="SelectionButtons" type="VBoxContainer" parent="." unique_id=261574147]
 layout_mode = 0
-offset_left = 268.0
-offset_top = 577.0
-offset_right = 372.0
-offset_bottom = 637.0
-text = "House"
+offset_right = 165.0
+offset_bottom = 647.0
 
-[node name="CancelBuild" type="Button" parent="." unique_id=369869391]
-layout_mode = 0
-offset_left = 748.0
-offset_top = 571.0
-offset_right = 876.0
-offset_bottom = 634.0
+[node name="CancelBuild" type="Button" parent="SelectionButtons" unique_id=369869391]
+layout_mode = 2
 text = "Cancel"
 
-[connection signal="pressed" from="BuildHouse" to="." method="_on_build_house_pressed"]
-[connection signal="pressed" from="CancelBuild" to="." method="_on_cancel_build_pressed"]
+[connection signal="pressed" from="SelectionButtons/CancelBuild" to="." method="_on_cancel_build_pressed"]

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="StructureData" format=3 uid="uid://dpopxd84nqlji"]
+
+[ext_resource type="Script" uid="uid://ctypwb251q40s" path="res://resources/scripts/structure_data.gd" id="1_wch2e"]
+[ext_resource type="PackedScene" uid="uid://dfqh7axvx0d7p" path="res://objects/game_objects/tree.tscn" id="2_u8lij"]
+
+[resource]
+script = ExtResource("1_wch2e")
+cost = 5
+structure = ExtResource("2_u8lij")
+display_name = "Tree"
+metadata/_custom_type_script = "uid://ctypwb251q40s"

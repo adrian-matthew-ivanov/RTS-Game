@@ -1,3 +1,3 @@
 extends Node
 
-enum Action {NULL, PLACE_HOUSE}
+enum Action {NULL, BUILD}
