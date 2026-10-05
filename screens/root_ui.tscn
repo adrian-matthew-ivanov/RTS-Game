@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dkpvrydxpmwq1" path="res://screens/connect_screen.tscn" id="1_1hj83"]
 [ext_resource type="PackedScene" uid="uid://crnn34c8em6ju" path="res://screens/player_hud.tscn" id="3_scaxr"]
 [ext_resource type="PackedScene" uid="uid://bex6xhk7rkodk" path="res://screens/start_match_screen.tscn" id="3_wbaw7"]
+[ext_resource type="PackedScene" uid="uid://c4xrgi6pgx6w0" path="res://screens/server_screen.tscn" id="4_le1vc"]
 
 [node name="UIRoot" type="Control" unique_id=1925889954]
 layout_mode = 3
@@ -22,3 +23,5 @@ visible = false
 visible = false
 
 [node name="PlayerHud" parent="CanvasLayer" unique_id=1773333609 instance=ExtResource("3_scaxr")]
+
+[node name="ServerScreen" parent="CanvasLayer" unique_id=290653894 instance=ExtResource("4_le1vc")]
