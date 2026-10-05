@@ -16,6 +16,11 @@ radius = 13.152946
 radius = 5.0
 height = 18.0
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_hyhk4"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 0
+
 [node name="Tree" type="Node2D" unique_id=776282896]
 script = ExtResource("1_d8ko4")
 
@@ -47,3 +52,6 @@ debug_color = Color(2.3102762e-06, 0.63588, 0.41566655, 0.41960785)
 position = Vector2(0, 9)
 shape = SubResource("CapsuleShape2D_kgtat")
 debug_color = Color(0.9643664, 0.19151148, 0, 0.41960785)
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=2119730108]
+replication_config = SubResource("SceneReplicationConfig_hyhk4")

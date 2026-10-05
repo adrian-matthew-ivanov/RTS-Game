@@ -74,4 +74,4 @@ func on_build_action(peer_id:int, structure_id: int, position: Vector2):
 	if multiplayer.is_server():
 		var child: Node2D = Globals.id_to_structure[structure_id].structure.instantiate()
 		child.global_position = position
-		level_root.add_child(child)
+		level_root.add_child(child, true)

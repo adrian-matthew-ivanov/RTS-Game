@@ -32,7 +32,8 @@ func _input(event: InputEvent) -> void:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			if (current_action == Enums.Action.BUILD && current_build != null):
 				#GameManager.do_action(current_action)
-				GameManager.build_action(current_build, get_global_mouse_position())
+				var position = get_viewport().get_canvas_transform().affine_inverse() * get_viewport().get_mouse_position()
+				GameManager.build_action(current_build, position)
 				current_build = null
 				current_action = Enums.Action.NULL
 

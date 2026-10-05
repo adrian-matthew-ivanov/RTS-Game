@@ -5,6 +5,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kgtat"]
 size = Vector2(22, 11)
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_2u3qg"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 0
+
 [node name="House" type="Node2D" unique_id=1223085983]
 
 [node name="House" type="Sprite2D" parent="." unique_id=568708704]
@@ -15,3 +20,6 @@ texture = ExtResource("1_2u3qg")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=627565454]
 position = Vector2(0, 7.5)
 shape = SubResource("RectangleShape2D_kgtat")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1719393138]
+replication_config = SubResource("SceneReplicationConfig_2u3qg")
