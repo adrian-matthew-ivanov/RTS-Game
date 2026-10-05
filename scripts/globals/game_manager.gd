@@ -1,28 +1,60 @@
 extends Node
 
-var root: Node2D
-var level: Node2D
-var players: Node2D
+var root: Node
+var level_root: Node
+var player_root: Node
+
+var _players: Dictionary[int, Node] = {}
+
+var LEVEL_1: PackedScene = load("res://scenes/levels/level_1.tscn")
+var PLAYER_SCENE: PackedScene = load("res://objects/player.tscn")
 
 func register_root(root: Node2D) -> void:
-	pass
+	self.root = root
+	self.level_root = root.find_child("Level")
+	self.player_root = root.find_child("Players")
 
 func _ready() -> void:
 	pass # Replace with function body.
 
-
 func _process(delta: float) -> void:
 	pass
-
-func do_action(action: Enums.Action) -> void:
-	sync_action.rpc_id(1, action)
-
-@rpc("any_peer", "reliable")
-func sync_action(action: int):
-	var current_action: Enums.Action = action as Enums.Action
-	if multiplayer.is_server():
-		print("Server received action: ", current_action)
+	
+func spawn_player(peer_id : int) -> void:
+	var player = PLAYER_SCENE.instantiate()
+	player.name = str(peer_id)
+	
+	_players[peer_id] = player
+	player_root.add_child(player)
+	
+func despawn_player(peer_id : int) -> void:
+	player_root.remove_child(_players[peer_id])
+	_players.erase(peer_id)
+	
+func _switch_level(level : PackedScene) -> void:
+	level_root.add_child(level.instantiate())	
+	
+func _clear_players() -> void:
+	for c in player_root.get_children():
+		player_root.remove_child(c)
+		c.queue_free()
 		
+func _clear_level() -> void:
+	for c in level_root.get_children():
+		level_root.remove_child(c)
+		c.queue_free()
+		
+#########################################
+
+func start_game() -> void:
+	if (is_multiplayer_authority()):
+		_clear_players()
+		_clear_level()
+		
+		_switch_level(LEVEL_1)
+		spawn_player(multiplayer.get_unique_id())
+		
+
 func enter_game() -> void:
 	# TODO implement match start sync
 	# ScreenManager.open(ScreenManager.ScreenName.START_MATCH)
@@ -33,3 +65,12 @@ func enter_game() -> void:
 		ScreenManager.open(ScreenManager.ScreenName.SERVER)
 	else:
 		ScreenManager.open(ScreenManager.ScreenName.HUD)
+
+func do_action(action: Enums.Action) -> void:
+	sync_action.rpc_id(1, action)
+
+@rpc("any_peer", "reliable")
+func sync_action(action: int):
+	var current_action: Enums.Action = action as Enums.Action
+	if multiplayer.is_server():
+		print("Server received action: ", current_action)
