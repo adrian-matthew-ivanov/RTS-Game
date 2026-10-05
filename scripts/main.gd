@@ -25,8 +25,7 @@ func server_start() -> void:
 	_switch_level(LEVEL_1)
 	_spawn_player(multiplayer.get_unique_id())
 	
-	# server has no UI
-	ScreenManager._hide_all_screens()
+	GameManager.enter_game()
 
 func peer_connected(peer_id : int) -> void:
 	_spawn_player(peer_id)
@@ -62,9 +61,4 @@ func _clear_level() -> void:
 
 
 func connected_to_server() -> void:
-	# TODO implement match start sync
-	# ScreenManager.open(ScreenManager.ScreenName.START_MATCH)
-	pass
-
-func _player_clicked_ready() -> void:
-	pass
+	GameManager.enter_game()

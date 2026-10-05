@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://d0cdrnsocr3u7"]
+
+[ext_resource type="PackedScene" uid="uid://dkpvrydxpmwq1" path="res://screens/connect_screen.tscn" id="1_1hj83"]
+[ext_resource type="PackedScene" uid="uid://crnn34c8em6ju" path="res://screens/player_hud.tscn" id="3_scaxr"]
+[ext_resource type="PackedScene" uid="uid://bex6xhk7rkodk" path="res://screens/start_match_screen.tscn" id="3_wbaw7"]
+
+[node name="UIRoot" type="Control" unique_id=1925889954]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1334391747]
+
+[node name="ConnectScreen" parent="CanvasLayer" unique_id=2094069186 instance=ExtResource("1_1hj83")]
+visible = false
+
+[node name="StartMatchScreen" parent="CanvasLayer" unique_id=1936329509 instance=ExtResource("3_wbaw7")]
+visible = false
+
+[node name="PlayerHud" parent="CanvasLayer" unique_id=1773333609 instance=ExtResource("3_scaxr")]

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bex6xhk7rkodk"]
 
-[ext_resource type="Script" uid="uid://dw8fev0x351lk" path="res://screens/screen.gd" id="1_6e8n4"]
+[ext_resource type="Script" uid="uid://dw8fev0x351lk" path="res://screens/scripts/screen.gd" id="1_6e8n4"]
 
 [node name="StartMatchScreen" type="Control" unique_id=1709839165]
 layout_mode = 3

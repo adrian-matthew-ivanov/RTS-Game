@@ -6,6 +6,5 @@ extends Control
 func _ready() -> void:
 	register_screen()
 
-# Your custom function to call on ready
 func register_screen() -> void:
 	ScreenManager.register_screen(self, ScreenName)

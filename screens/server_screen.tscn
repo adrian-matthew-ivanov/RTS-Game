@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://c4xrgi6pgx6w0"]
+
+[ext_resource type="Script" uid="uid://dw8fev0x351lk" path="res://screens/scripts/screen.gd" id="1_ijwvj"]
+
+[node name="ServerScreen" type="Control" unique_id=290653894]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ijwvj")
+ScreenName = 4
+metadata/_custom_type_script = "uid://dw8fev0x351lk"

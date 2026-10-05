@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://crnn34c8em6ju"]
+
+[ext_resource type="Script" uid="uid://dw8fev0x351lk" path="res://screens/scripts/screen.gd" id="1_1tsyy"]
+
+[node name="PlayerHud" type="Control" unique_id=1773333609]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_1tsyy")
+ScreenName = 3
+metadata/_custom_type_script = "uid://dw8fev0x351lk"
+
+[node name="BuildHouse" type="Button" parent="." unique_id=1297080598]
+layout_mode = 0
+offset_left = 268.0
+offset_top = 577.0
+offset_right = 372.0
+offset_bottom = 637.0
+text = "House"
+
+[node name="CancelBuild" type="Button" parent="." unique_id=369869391]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 24.0
+offset_right = 154.0
+offset_bottom = 87.0
+text = "Cancel"
