@@ -8,3 +8,12 @@ anchors_preset = 0
 script = ExtResource("1_ijwvj")
 ScreenName = 4
 metadata/_custom_type_script = "uid://dw8fev0x351lk"
+
+[node name="TextEdit" type="Label" parent="." unique_id=869925992]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_font_sizes/font_size = 100
+text = "SERVER"
+horizontal_alignment = 1
+vertical_alignment = 1

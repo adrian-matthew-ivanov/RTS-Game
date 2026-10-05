@@ -24,8 +24,8 @@ text = "House"
 
 [node name="CancelBuild" type="Button" parent="." unique_id=369869391]
 layout_mode = 0
-offset_left = 26.0
-offset_top = 24.0
-offset_right = 154.0
-offset_bottom = 87.0
+offset_left = 748.0
+offset_top = 571.0
+offset_right = 876.0
+offset_bottom = 634.0
 text = "Cancel"
