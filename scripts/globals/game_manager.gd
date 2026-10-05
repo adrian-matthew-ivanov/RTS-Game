@@ -21,11 +21,7 @@ func do_action(action: Enums.Action) -> void:
 func sync_action(action: int):
 	var current_action: Enums.Action = action as Enums.Action
 	if multiplayer.is_server():
-<<<<<<< Updated upstream
 		print("Server received action: ", current_action)
-=======
-		print("Server received action: ", current_action, " from client: ")
->>>>>>> Stashed changes
 
 func enter_game() -> void:
 	# TODO implement match start sync
