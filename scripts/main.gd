@@ -16,6 +16,8 @@ func _ready() -> void:
 	
 	Lobby.connected_to_server.connect(connected_to_server)
 	
+	GameManager.register_root(self)
+	
 	ScreenManager.open(ScreenManager.ScreenName.CONNECT)
 
 func server_start() -> void:
