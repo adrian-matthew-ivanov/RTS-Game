@@ -66,11 +66,11 @@ func enter_game() -> void:
 	else:
 		ScreenManager.open(ScreenManager.ScreenName.HUD)
 
-func do_action(action: Enums.Action) -> void:
-	sync_action.rpc_id(1, action)
+func build_action(structure: StructureData) -> void:
+	build_action.rpc(1, structure.resource_path)
 
 @rpc("any_peer", "reliable")
-func sync_action(action: int):
-	var current_action: Enums.Action = action as Enums.Action
+func on_build_action(action: String):
 	if multiplayer.is_server():
-		print("Server received action: ", current_action)
+		# get resource from globals, spawn
+		pass
