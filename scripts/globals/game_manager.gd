@@ -66,11 +66,11 @@ func enter_game() -> void:
 	else:
 		ScreenManager.open(ScreenManager.ScreenName.HUD)
 
-func build_action(structure: StructureData) -> void:
-	build_action.rpc(1, structure.resource_path)
+func build_action(structure_data: StructureData) -> void:
+	build_action.rpc(1, structure_data.resource_path)
 
 @rpc("any_peer", "reliable")
-func on_build_action(action: String):
+func on_build_action(structure_uid: String):
 	if multiplayer.is_server():
 		# get resource from globals, spawn
 		pass
