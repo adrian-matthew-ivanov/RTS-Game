@@ -8,6 +8,14 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
+func do_action(action: Enums.Action) -> void:
+	sync_action.rpc_id(1, action)
+
+@rpc("any_peer", "reliable")
+func sync_action(player_id: int, action: int):
+	var current_action: Enums.Action = action as Enums.Action
+	if multiplayer.is_server():
+		print("Server received action: ", current_action, " from client: ", player_id)
 
 func enter_game() -> void:
 	# TODO implement match start sync

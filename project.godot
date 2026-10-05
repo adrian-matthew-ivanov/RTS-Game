@@ -22,6 +22,7 @@ ScreenManager="*uid://mgqrkgca6tkc"
 Globals="*uid://buy4otmofirpp"
 Configloader="*uid://bvajp23yfjvfe"
 GameManager="*uid://c4ea0siwsxa2n"
+Enums="*uid://ck2si81l35652"
 
 [display]
 
