@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="StructureData" format=3 uid="uid://bg6xg7khcd058"]
+
+[ext_resource type="Script" uid="uid://ctypwb251q40s" path="res://data/scripts/structure_data.gd" id="1_5puce"]
+[ext_resource type="PackedScene" uid="uid://dccj67mg83ppe" path="res://objects/game_objects/house.tscn" id="2_50e7p"]
+
+[resource]
+script = ExtResource("1_5puce")
+cost = 10
+structure = ExtResource("2_50e7p")
+metadata/_custom_type_script = "uid://ctypwb251q40s"
