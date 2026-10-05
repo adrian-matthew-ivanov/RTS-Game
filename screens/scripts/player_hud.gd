@@ -14,9 +14,10 @@ func _process(delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
-		if event.button_index == 1:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			if (current_action == Enums.Action.PLACE_HOUSE):
 				GameManager.do_action(current_action)
+				current_action = Enums.Action.NULL
 
 func _on_build_house_pressed() -> void:
 	current_action = Enums.Action.PLACE_HOUSE
