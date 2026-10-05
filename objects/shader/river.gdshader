@@ -1,8 +1,6 @@
 shader_type canvas_item;
 render_mode world_vertex_coords;
 
-const int MAX_POINTS = 256;
-
 uniform float pixel_size = 1.0; 
 
 uniform vec4 water_dark : source_color = vec4(0.09, 0.27, 0.63, 1.0);
@@ -20,9 +18,10 @@ uniform float wave_scale = 0.05;
 uniform float wave_dark_threshold = 0.3;
 uniform float wave_foam_threshold = 0.85;
 
-uniform float river_width = 48.0;      
-uniform vec2 path_points[MAX_POINTS];  
-uniform int point_count = 0;           
+// Hardcoded array size for maximum compatibility across Godot 4 drivers
+uniform vec4 river_segments[256]; 
+uniform float river_widths[256];  
+uniform int segment_count = 0;             
 
 float get_bubble_noise(vec2 p, float time) {
     vec2 scaled_p = p * edge_foam_scale;
@@ -49,12 +48,23 @@ float dist_to_segment(vec2 p, vec2 a, vec2 b) {
     return length(p - proj);
 }
 
-float get_path_dist(vec2 world_p) {
-    float min_dist = 1e20;
-    for (int i = 0; i < point_count - 1; i++) {
-        min_dist = min(min_dist, dist_to_segment(world_p, path_points[i], path_points[i + 1]));
+// Returns a Signed Distance: < 0 is INSIDE the river, > 0 is OUTSIDE
+float get_edge_dist(vec2 world_p) {
+    float min_dist_to_edge = 1e20;
+    
+    for (int i = 0; i < 256; i++) {
+        if (i >= segment_count) {
+            break;
+        }
+        
+        // Only evaluate valid rivers with positive width
+        if (river_widths[i] > 0.0) {
+            float d = dist_to_segment(world_p, river_segments[i].xy, river_segments[i].zw);
+            float edge_d = d - (river_widths[i] * 0.5);
+            min_dist_to_edge = min(min_dist_to_edge, edge_d);
+        }
     }
-    return min_dist;
+    return min_dist_to_edge;
 }
 
 varying vec2 world_pos;
@@ -67,10 +77,9 @@ void fragment() {
     vec2 pixel_coord = floor(world_pos / pixel_size);
     vec2 center_world = (pixel_coord + vec2(0.5)) * pixel_size;
 
-    float half_width = river_width * 0.5;
-
-    float center_dist = get_path_dist(center_world);
-    if (center_dist > half_width) {
+    float center_edge_dist = get_edge_dist(center_world);
+    
+    if (center_edge_dist > 0.0) {
         discard;
     }
 
@@ -84,7 +93,7 @@ void fragment() {
     bool is_outline = false;
     for (int i = 0; i < 4; i++) {
         vec2 neighbor_world = center_world + offsets[i] * pixel_size;
-        if (get_path_dist(neighbor_world) > half_width) {
+        if (get_edge_dist(neighbor_world) > 0.0) {
             is_outline = true;
             break;
         }
@@ -102,9 +111,10 @@ void fragment() {
             base_color = foam_color;
         }
         
-        float dist_to_edge = half_width - center_dist;
-        if (dist_to_edge <= edge_foam_thickness) {
-            float edge_factor = 1.0 - (dist_to_edge / edge_foam_thickness);
+        float dist_from_edge = -center_edge_dist; 
+        
+        if (dist_from_edge <= edge_foam_thickness) {
+            float edge_factor = 1.0 - (dist_from_edge / edge_foam_thickness);
             float e_noise = get_bubble_noise(pixel_coord, TIME * edge_foam_speed);
             
             if (e_noise < edge_factor) {
