@@ -66,8 +66,10 @@ func enter_game() -> void:
 	else:
 		ScreenManager.open(ScreenManager.ScreenName.HUD)
 
-func build_action(structure: StructureData, position: Vector2) -> void:
+func build_action(structure: StructureData, position: Vector2) -> bool:
+	
 	on_build_action.rpc(1, Globals.get_structure_id(structure), position)
+	return true
 
 @rpc("any_peer", "reliable")
 func on_build_action(peer_id:int, structure_id: int, position: Vector2):
