@@ -73,6 +73,15 @@ func build_action(structure: StructureData, position: Vector2) -> bool:
 	on_build_action.rpc(1, Globals.get_structure_id(structure), position)
 	return true
 
+func destroy_action(position: Vector2):
+	pass
+	
+func interact_action(position: Vector2):
+	pass
+
+func guide_troops(selection_area: Rect2, position: Vector2):
+	pass
+
 @rpc("any_peer", "reliable")
 func on_build_action(peer_id:int, structure_id: int, position: Vector2):
 	if multiplayer.is_server():

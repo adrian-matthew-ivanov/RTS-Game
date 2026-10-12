@@ -40,11 +40,14 @@ func action_changed():
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			var position = get_viewport().get_canvas_transform().affine_inverse() * get_viewport().get_mouse_position()
 			if (current_action == Action.BUILD && current_build != null):
-				#GameManager.do_action(current_action)
-				var position = get_viewport().get_canvas_transform().affine_inverse() * get_viewport().get_mouse_position()
 				GameManager.build_action(current_build, position)
 				current_build = null
+				current_action = Action.NULL
+				action_changed()
+			elif (current_action == Action.DESTROY):
+				GameManager.destroy_action(position)
 				current_action = Action.NULL
 				action_changed()
 				
