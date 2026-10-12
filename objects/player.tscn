@@ -1,11 +1,18 @@
 [gd_scene format=3 uid="uid://dvbp3gkohth4"]
 
 [ext_resource type="Script" uid="uid://ps8ajatuqadb" path="res://objects/scripts/player.gd" id="1_eqqp1"]
+[ext_resource type="Script" uid="uid://bn441nfst1byc" path="res://scripts/RTSResourceContainer.gd" id="2_ykyjo"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_eqqp1"]
 properties/0/path = NodePath(".:position")
 properties/0/spawn = true
 properties/0/replication_mode = 1
+properties/1/path = NodePath("Inventory:gold")
+properties/1/spawn = true
+properties/1/replication_mode = 2
+properties/2/path = NodePath("Inventory:wood")
+properties/2/spawn = true
+properties/2/replication_mode = 2
 
 [node name="Player" type="Node2D" unique_id=49778388]
 script = ExtResource("1_eqqp1")
@@ -20,3 +27,7 @@ position_smoothing_enabled = true
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=2054074342]
 replication_config = SubResource("SceneReplicationConfig_eqqp1")
+
+[node name="Inventory" type="Node" parent="." unique_id=95457523]
+script = ExtResource("2_ykyjo")
+metadata/_custom_type_script = "uid://bn441nfst1byc"

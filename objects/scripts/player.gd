@@ -57,3 +57,7 @@ func _ready():
 	
 	if is_multiplayer_authority():
 		$Camera2D.make_current()
+		
+		
+func get_inventory() -> RTSResourceContainer:
+	return $Inventory

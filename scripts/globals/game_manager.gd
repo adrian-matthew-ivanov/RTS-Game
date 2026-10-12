@@ -4,7 +4,7 @@ var root: Node
 var level_root: Node
 var player_root: Node
 
-var _players: Dictionary[int, Node] = {}
+var _players: Dictionary[int, RTSPlayer] = {}
 
 var LEVEL_1: PackedScene = load("res://scenes/levels/level_1.tscn")
 var PLAYER_SCENE: PackedScene = load("res://objects/player.tscn")
@@ -67,7 +67,8 @@ func enter_game() -> void:
 		ScreenManager.open(ScreenManager.ScreenName.HUD)
 
 func build_action(structure: StructureData, position: Vector2) -> bool:
-	
+	var peer_id = multiplayer.get_unique_id()
+	var inventory = _players[peer_id].get_inventory()
 	on_build_action.rpc(1, Globals.get_structure_id(structure), position)
 	return true
 
