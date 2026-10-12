@@ -69,13 +69,21 @@ func enter_game() -> void:
 func build_action(structure: StructureData, position: Vector2) -> bool:
 	var peer_id = multiplayer.get_unique_id()
 	var inventory = _players[peer_id].get_inventory()
-	if (RTSResourceContainer.can_buy(inventory, ))
+	if (!RTSResourceContainer.can_buy_structure(inventory, structure)):
+		return false
+	
 	on_build_action.rpc(1, Globals.get_structure_id(structure), position)
 	return true
 
 @rpc("any_peer", "reliable")
 func on_build_action(peer_id:int, structure_id: int, position: Vector2):
 	if multiplayer.is_server():
-		var child: Node2D = Globals.id_to_structure[structure_id].structure.instantiate()
+		var structure = Globals.id_to_structure[structure_id].structure
+		var inventory = _players[peer_id].get_inventory()
+		
+		if (!RTSResourceContainer.can_buy_structure(inventory, structure)):
+			return
+		
+		var child: Node2D = structure.instantiate()
 		child.global_position = position
 		level_root.add_child(child, true)
