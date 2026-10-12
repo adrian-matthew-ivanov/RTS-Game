@@ -69,6 +69,7 @@ func enter_game() -> void:
 func build_action(structure: StructureData, position: Vector2) -> bool:
 	var peer_id = multiplayer.get_unique_id()
 	var inventory = _players[peer_id].get_inventory()
+	if (RTSResourceContainer.can_buy(inventory, ))
 	on_build_action.rpc(1, Globals.get_structure_id(structure), position)
 	return true
 

@@ -5,4 +5,5 @@ extends Resource
 @export var structure: PackedScene
 @export var display_name: String
 
-@export var cost: ResourceContainer
+@export var gold: float
+@export var wood: float
