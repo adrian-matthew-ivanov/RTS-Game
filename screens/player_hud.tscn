@@ -14,13 +14,65 @@ script = ExtResource("1_juk4q")
 ScreenName = 3
 metadata/_custom_type_script = "uid://dw8fev0x351lk"
 
-[node name="SelectionButtons" type="VBoxContainer" parent="." unique_id=261574147]
-layout_mode = 0
-offset_right = 165.0
-offset_bottom = 647.0
+[node name="ActionMenu" type="HBoxContainer" parent="." unique_id=2040028689]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.11024305
+anchor_top = 0.83487654
+anchor_right = 0.8897569
+anchor_bottom = 1.0
+offset_top = -41.0
+offset_bottom = -41.0
+grow_horizontal = 2
+grow_vertical = 0
+offset_transform_enabled = true
+theme_override_constants/separation = 37
+alignment = 1
+metadata/_edit_use_anchors_ = true
 
-[node name="CancelBuild" type="Button" parent="SelectionButtons" unique_id=369869391]
+[node name="Cancel" type="Button" parent="ActionMenu" unique_id=1453276968]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "Cancel"
 
-[connection signal="pressed" from="SelectionButtons/CancelBuild" to="." method="_on_cancel_build_pressed"]
+[node name="Build" type="Button" parent="ActionMenu" unique_id=915236257]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Build"
+
+[node name="Destroy" type="Button" parent="ActionMenu" unique_id=29676693]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Destroy"
+
+[node name="Interact" type="Button" parent="ActionMenu" unique_id=1947514726]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Interact"
+
+[node name="Guide Troops" type="Button" parent="ActionMenu" unique_id=843003847]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Guide Troops"
+
+[node name="BuildMenu" type="HBoxContainer" parent="." unique_id=1296860955]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -438.5
+offset_top = -320.96
+offset_right = 438.5
+offset_bottom = -188.95993
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 20
+
+[connection signal="pressed" from="ActionMenu/Cancel" to="." method="_action_cancel"]
+[connection signal="pressed" from="ActionMenu/Build" to="." method="_action_build"]
+[connection signal="pressed" from="ActionMenu/Destroy" to="." method="_action_destroy"]
+[connection signal="pressed" from="ActionMenu/Interact" to="." method="_action_interact"]
+[connection signal="pressed" from="ActionMenu/Guide Troops" to="." method="_action_guide_troops"]
