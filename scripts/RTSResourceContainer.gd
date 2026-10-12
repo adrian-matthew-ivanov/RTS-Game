@@ -1,4 +1,4 @@
-extends Object
+extends Node
 class_name RTSResourceContainer
 
 @export var gold: float = 0;

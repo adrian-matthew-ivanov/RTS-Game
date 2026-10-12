@@ -46,6 +46,7 @@ func _input(event: InputEvent) -> void:
 				GameManager.build_action(current_build, position)
 				current_build = null
 				current_action = Action.NULL
+				action_changed()
 				
 func _action_cancel():
 	current_action = Action.NULL
