@@ -97,7 +97,6 @@ func generate_spline_mesh() -> void:
 			current_path_index += 1
 			continue
 			
-		# Match the width array to the path array by index
 		var river_width: float = default_width
 		if current_path_index < path_widths.size():
 			river_width = path_widths[current_path_index]
@@ -169,7 +168,6 @@ func _sync_shader_params(segments: PackedVector4Array, widths: PackedFloat32Arra
 
 	var valid_count = segments.size()
 	
-	# Use untyped Arrays to guarantee Godot translates it to uniforms properly
 	var final_segments: Array = []
 	var final_widths: Array = []
 	
@@ -181,10 +179,8 @@ func _sync_shader_params(segments: PackedVector4Array, widths: PackedFloat32Arra
 			final_segments[i] = segments[i]
 			final_widths[i] = widths[i]
 		else:
-			# CRITICAL FIX: Place unused segments infinitely far away!
-			# If set to ZERO, the shader calculates distance to (0,0) and corrupts the math.
 			final_segments[i] = Vector4(999999.0, 999999.0, 999999.1, 999999.1)
-			final_widths[i] = -1.0 # Negative width flags it to be ignored
+			final_widths[i] = -1.0
 
 	shader_mat.set_shader_parameter("river_segments", final_segments)
 	shader_mat.set_shader_parameter("river_widths", final_widths)
