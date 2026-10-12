@@ -4,6 +4,7 @@ var root: Node
 var level_root: Node
 var player_root: Node
 
+var local_player: RTSPlayer
 var _players: Dictionary[int, RTSPlayer] = {}
 
 var LEVEL_1: PackedScene = load("res://scenes/levels/level_1.tscn")
@@ -67,9 +68,7 @@ func enter_game() -> void:
 		ScreenManager.open(ScreenManager.ScreenName.HUD)
 
 func build_action(structure: StructureData, position: Vector2) -> bool:
-	var peer_id = multiplayer.get_unique_id()
-	var inventory = _players[peer_id].get_inventory()
-	if (!RTSResourceContainer.can_buy_structure(inventory, structure)):
+	if (!RTSResourceContainer.can_buy_structure(local_player.get_inventory(), structure)):
 		return false
 	on_build_action.rpc(1, Globals.get_structure_id(structure), position)
 	return true
@@ -77,12 +76,12 @@ func build_action(structure: StructureData, position: Vector2) -> bool:
 @rpc("any_peer", "reliable")
 func on_build_action(peer_id:int, structure_id: int, position: Vector2):
 	if multiplayer.is_server():
-		var structure = Globals.id_to_structure[structure_id].structure
+		var structure_data = Globals.id_to_structure[structure_id]
 		var inventory = _players[peer_id].get_inventory()
 		
-		if (!RTSResourceContainer.can_buy_structure(inventory, structure)):
+		if (!RTSResourceContainer.can_buy_structure(inventory, structure_data)):
 			return
 		
-		var child: Node2D = structure.instantiate()
+		var child: Node2D = structure_data.structure.instantiate()
 		child.global_position = position
 		level_root.add_child(child, true)

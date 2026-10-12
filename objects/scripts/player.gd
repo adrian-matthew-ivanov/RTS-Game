@@ -51,13 +51,13 @@ func _unhandled_input(event: InputEvent) -> void:
 func _enter_tree() -> void:
 	var authority_id = name.to_int()
 	set_multiplayer_authority(authority_id)
+	GameManager.local_player = self
 
 func _ready():
 	target_zoom = camera.zoom.x
 	
 	if is_multiplayer_authority():
 		$Camera2D.make_current()
-		
 		
 func get_inventory() -> RTSResourceContainer:
 	return $Inventory

@@ -23,6 +23,5 @@ func peer_connected(peer_id : int) -> void:
 func peer_disconnected(peer_id : int) -> void:
 	GameManager.despawn_player(peer_id)
 
-
 func connected_to_server() -> void:
 	GameManager.enter_game()
