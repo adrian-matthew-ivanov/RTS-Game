@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cfwdoxrahk6d8"]
+
+[ext_resource type="Shader" uid="uid://b6fvjcqhhtgpi" path="res://objects/shader/flag.gdshader" id="1_ldvm3"]
+[ext_resource type="Texture2D" uid="uid://edqinvjn7ewp" path="res://assets/flag.png" id="2_rgeln"]
+[ext_resource type="Script" uid="uid://chnnv130k2sex" path="res://objects/scripts/flag.gd" id="3_rgeln"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kgtat"]
+shader = ExtResource("1_ldvm3")
+shader_parameter/tint_color = Color(0.8211153, 0.26880723, 0.7444953, 1)
+shader_parameter/tolerance = 0.05
+shader_parameter/tint_strength = 1.0
+
+[node name="Flag" type="Sprite2D" unique_id=1753583622]
+material = SubResource("ShaderMaterial_kgtat")
+texture = ExtResource("2_rgeln")
+script = ExtResource("3_rgeln")
+gray_tint_color = Color(0.8211153, 0.26880723, 0.7444953, 1)

@@ -7,7 +7,7 @@ var player_root: Node
 var local_player: RTSPlayer
 var _players: Dictionary[int, RTSPlayer] = {}
 
-var LEVEL_1: PackedScene = load("res://scenes/levels/level_1.tscn")
+var LEVEL_1: PackedScene = load("res://scenes/levels/level1.tscn")
 var PLAYER_SCENE: PackedScene = load("res://objects/player.tscn")
 
 func register_root(root: Node2D) -> void:
