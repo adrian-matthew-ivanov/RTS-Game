@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bak38u2dbcdaj"]
+
+[ext_resource type="Script" uid="uid://brj47letgc4ht" path="res://objects/scripts/unit.gd" id="1_yodgr"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_ne26v"]
+properties/0/path = NodePath(".:owner_id")
+properties/0/spawn = true
+properties/0/replication_mode = 0
+properties/1/path = NodePath(".:position")
+properties/1/spawn = true
+properties/1/replication_mode = 2
+
+[node name="Unit" type="Node2D" unique_id=617156687]
+script = ExtResource("1_yodgr")
+metadata/_custom_type_script = "uid://brj47letgc4ht"
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1499543221]
+replication_config = SubResource("SceneReplicationConfig_ne26v")

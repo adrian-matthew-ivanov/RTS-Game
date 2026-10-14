@@ -2,5 +2,6 @@
 
 [ext_resource type="Script" uid="uid://bu7eooxc5o15v" path="res://objects/scripts/troop.gd" id="1_m4w3y"]
 
-[node name="Troop" type="Node2D" unique_id=735361006]
+[node name="Troop" type="Node2D" unique_id=214367625]
 script = ExtResource("1_m4w3y")
+metadata/_custom_type_script = "uid://brj47letgc4ht"
