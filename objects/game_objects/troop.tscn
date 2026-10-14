@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cyj1cyk2ex85r"]
 
+[ext_resource type="PackedScene" uid="uid://bak38u2dbcdaj" path="res://objects/game_objects/unit.tscn" id="1_2t8lh"]
 [ext_resource type="Script" uid="uid://bu7eooxc5o15v" path="res://objects/scripts/troop.gd" id="1_m4w3y"]
 
-[node name="Troop" type="Node2D" unique_id=214367625]
+[node name="Troop" unique_id=617156687 instance=ExtResource("1_2t8lh")]
 script = ExtResource("1_m4w3y")
-metadata/_custom_type_script = "uid://brj47letgc4ht"
