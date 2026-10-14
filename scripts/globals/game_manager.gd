@@ -91,6 +91,9 @@ func on_build_action(peer_id:int, structure_id: int, position: Vector2):
 		if (!RTSResourceContainer.can_buy_structure(inventory, structure_data)):
 			return
 		
-		var child: Node2D = structure_data.structure.instantiate(peer_id)
+		var child: RTSUnit = structure_data.structure.instantiate()
+		assert (child)
+		child.set_owner_id(peer_id)
+		
 		child.global_position = position
 		level_root.add_child(child, true)
