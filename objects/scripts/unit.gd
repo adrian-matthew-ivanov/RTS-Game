@@ -3,5 +3,5 @@ class_name RTSUnit
 
 @export var owner_id: int
 
-func _init(owner_id: int):
+func set_owner_id(owner_id: int) -> void:
 	self.owner_id = owner_id
