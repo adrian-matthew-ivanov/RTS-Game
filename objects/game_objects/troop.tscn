@@ -1,3 +1,6 @@
 [gd_scene format=3 uid="uid://cyj1cyk2ex85r"]
 
+[ext_resource type="Script" uid="uid://bu7eooxc5o15v" path="res://objects/scripts/troop.gd" id="1_m4w3y"]
+
 [node name="Troop" type="Node2D" unique_id=735361006]
+script = ExtResource("1_m4w3y")

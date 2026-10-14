@@ -1,12 +1,7 @@
-extends Node
-
+extends Node2D
 class_name RTSUnit
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+var owner_id: int
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _init(owner_id: int):
+	self.owner_id = owner_id

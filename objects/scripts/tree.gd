@@ -1,4 +1,4 @@
-extends Node2D
+extends RTSUnit
 
 class_name RTSTree
 
