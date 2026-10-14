@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dccj67mg83ppe"]
 
 [ext_resource type="Texture2D" uid="uid://c72n02eglvpn0" path="res://assets/house.png" id="1_2u3qg"]
+[ext_resource type="Script" uid="uid://dqrwk8nny3r25" path="res://objects/scripts/house.gd" id="1_ft2yq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kgtat"]
 size = Vector2(22, 11)
@@ -11,6 +12,7 @@ properties/0/spawn = true
 properties/0/replication_mode = 0
 
 [node name="House" type="Node2D" unique_id=1223085983]
+script = ExtResource("1_ft2yq")
 
 [node name="House" type="Sprite2D" parent="." unique_id=568708704]
 texture = ExtResource("1_2u3qg")
