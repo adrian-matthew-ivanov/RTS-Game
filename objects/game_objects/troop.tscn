@@ -3,5 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://bak38u2dbcdaj" path="res://objects/game_objects/unit.tscn" id="1_2t8lh"]
 [ext_resource type="Script" uid="uid://bu7eooxc5o15v" path="res://objects/scripts/troop.gd" id="1_m4w3y"]
 
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_3j2me"]
+
 [node name="Troop" unique_id=617156687 instance=ExtResource("1_2t8lh")]
 script = ExtResource("1_m4w3y")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="1" unique_id=2015970882]
+scale = Vector2(13.5, 13.5)
+texture = SubResource("PlaceholderTexture2D_3j2me")

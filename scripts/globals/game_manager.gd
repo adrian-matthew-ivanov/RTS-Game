@@ -92,8 +92,14 @@ func on_build_action(peer_id:int, structure_id: int, position: Vector2):
 			return
 		
 		var child: RTSUnit = structure_data.structure.instantiate()
-		assert (child)
+		assert (child) # TODO, better error handling
 		child.set_owner_id(peer_id)
 		
 		child.global_position = position
 		level_root.add_child(child, true)
+		
+func spawn(owner: RTSUnit, unit: RTSUnit) -> void:
+	if !multiplayer.is_server():
+		return
+	unit.set_owner_id(owner.owner_id)
+	level_root.add_child(unit, true)

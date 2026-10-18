@@ -3,12 +3,14 @@
 [ext_resource type="Texture2D" uid="uid://c72n02eglvpn0" path="res://assets/house.png" id="1_2u3qg"]
 [ext_resource type="Script" uid="uid://dqrwk8nny3r25" path="res://objects/scripts/house.gd" id="1_ft2yq"]
 [ext_resource type="PackedScene" uid="uid://bak38u2dbcdaj" path="res://objects/game_objects/unit.tscn" id="1_sg63w"]
+[ext_resource type="PackedScene" uid="uid://cyj1cyk2ex85r" path="res://objects/game_objects/troop.tscn" id="3_12ctj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_12ctj"]
 size = Vector2(22, 11)
 
 [node name="House" unique_id=617156687 instance=ExtResource("1_sg63w")]
 script = ExtResource("1_ft2yq")
+spawn_unit = ExtResource("3_12ctj")
 
 [node name="House" type="Sprite2D" parent="." index="1" unique_id=1411247328]
 texture = ExtResource("1_2u3qg")
