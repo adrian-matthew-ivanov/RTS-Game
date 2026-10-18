@@ -5,3 +5,6 @@ class_name RTSUnit
 
 func set_owner_id(owner_id: int) -> void:
 	self.owner_id = owner_id
+
+func _ready():
+	add_to_group("units")

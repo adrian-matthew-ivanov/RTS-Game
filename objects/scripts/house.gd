@@ -3,6 +3,7 @@ extends RTSUnit
 @export var spawn_unit: PackedScene
 
 func _ready() -> void:
+	super()
 	if multiplayer.is_server():
 		var timer := Timer.new()
 		add_child(timer)

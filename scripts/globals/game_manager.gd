@@ -98,8 +98,8 @@ func on_build_action(peer_id:int, structure_id: int, position: Vector2):
 		child.global_position = position
 		level_root.add_child(child, true)
 		
-func spawn(owner: RTSUnit, unit: RTSUnit) -> void:
+func spawn(owner_unit: RTSUnit, unit: RTSUnit) -> void:
 	if !multiplayer.is_server():
 		return
-	unit.set_owner_id(owner.owner_id)
+	unit.set_owner_id(owner_unit.owner_id)
 	level_root.add_child(unit, true)
